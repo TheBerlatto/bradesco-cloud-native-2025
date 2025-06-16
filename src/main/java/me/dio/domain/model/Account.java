@@ -1,14 +1,25 @@
 package me.dio.domain.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
-
+@Entity(name = "tb_account")
 public class Account {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //ID é gerado automaticamente
     private Long id;
+
+    @Column(unique = true)
     private String number;
+
     private String agency;
+
+    @Column(scale = 13, precision = 2) //O número terá 13 casas no geral, sendo 2 decimais e o resto(11) inteiro
     private BigDecimal balance;
+
+    @Column(name = "additional_limit", scale = 13, precision = 2)
     private BigDecimal limit;
 
     public Long getId() {

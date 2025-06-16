@@ -1,23 +1,8 @@
 package me.dio.domain.model;
 
-public class News {
+import jakarta.persistence.Entity;
 
-    private String icon;
-    private String description;
+@Entity(name = "tb_news")
+public class News extends BaseItem{
 
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

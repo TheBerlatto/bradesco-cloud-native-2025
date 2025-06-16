@@ -1,19 +1,28 @@
 package me.dio.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity(name = "tb_user")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //ID é gerado automaticamente
     private Long id;
+
     private String name;
+
+    @OneToOne(cascade = CascadeType.ALL) //Quando um usuário for deletado, a conta também é
     private Account account;
-    private List<Feature> features;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Card card;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER) //Quando trazer os dados do usuário, vai trazer as features junto também
+    private List<Feature> features;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<News> news;
 
     public Long getId() {
