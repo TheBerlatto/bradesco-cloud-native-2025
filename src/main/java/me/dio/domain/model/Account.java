@@ -16,10 +16,10 @@ public class Account {
 
     private String agency;
 
-    @Column(scale = 13, precision = 2) //O número terá 13 casas no geral, sendo 2 decimais e o resto(11) inteiro
+    @Column(precision = 13, scale = 2) //O número terá 13 casas no geral, sendo 2 decimais e o resto(11) inteiro
     private BigDecimal balance;
 
-    @Column(name = "additional_limit", scale = 13, precision = 2)
+    @Column(name = "additional_limit", precision = 13, scale = 2)
     private BigDecimal limit;
 
     public Long getId() {
