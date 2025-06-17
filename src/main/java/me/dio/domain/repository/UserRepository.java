@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository //Anotação não necessária, pois o próprio Spring identifica a herança
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    boolean existsByAccountNumber(String accountNumber);
+
 }
